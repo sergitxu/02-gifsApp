@@ -1,7 +1,8 @@
 <aside class="bg-dark border-right p-3" id="sidebar">
     <h1 class="text-light">Gifs app</h1>
     <div class="list-group list-reset">
-        <a href="#" class="list-group-item list-group-item-action" *ngFor="let item of historial">
+        <a href="#" class="list-group-item list-group-item-action" *ngFor="let item of historial"
+            (click)="buscar(item);">
             {{ item | titlecase }}
         </a>
     </div>
