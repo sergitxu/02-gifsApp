@@ -44,13 +44,11 @@ export class GifsService {
       .set('limit', '10')
 
 
-    this.http.get<SearchGifsResponse>(`${this.servicioURL}/search?`, { params })
+    this.http.get<SearchGifsResponse>(`${this.servicioURL}/search`, { params })
       .subscribe((resp) => {
         this.resultados = resp.data;
         this.resultadosCache = localStorage.setItem('resultadosCache', JSON.stringify(this.resultados));
       })
-
-
 
     // Opción Vanilla JS de conexión a la API
     // fetch('https://api.giphy.com/v1/gifs/search?api_key=VYLAbGgRGbxyI9knVRyokfE2fRvSP7NL&q=patata&limit=10')
@@ -62,7 +60,6 @@ export class GifsService {
     // const resp = await fetch('https://api.giphy.com/v1/gifs/search?api_key=VYLAbGgRGbxyI9knVRyokfE2fRvSP7NL&q=patata&limit=10');
     // const data = await resp.json();
     // console.log(data)
-
 
   }
 }
